@@ -6,6 +6,6 @@ Run the driver program to:
     3. Extract bag-of-word features
     4. Train and test a Naive Bayes model on bag-of-words features
     5. Train and test LinearSVC, MultiNomial NB with TFIDF, PolySVC, and RbfSVC using k-fold cross validation. 
-    5. Extract tweet2vec features
-    6. Train and test a Naive Bayes model on tweet2vec features
-    7. Train and test LinearSVC, PolySVC, and RbfSVC using k-fold cross validation. 
+    6. Extract tweet2vec features
+    7. Train and test a Naive Bayes model on tweet2vec features
+    8. Train and test LinearSVC, PolySVC, and RbfSVC using k-fold cross validation. 
