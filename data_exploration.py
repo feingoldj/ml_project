@@ -17,17 +17,17 @@ def sort_dict(d):
         new_dict[elem[0]] = elem[1]
     return new_dict
 
-def compute_positive_negative_neutral(tokenized_tweets):
+def compute_positive_negative_neutral(tokenized_tweets, labels):
     positive_words = {}
     negative_words = {}
     neutral_words = {}
-    for t in tokenized_tweets:
-        for w in t[0]:
-            if(t[1] == "1"):
+    for t in range(len(tokenized_tweets)):
+        for w in tokenized_tweets[t]:
+            if(labels[t] == "1"):
                 negative_words = update_dict(negative_words, w)
-            elif(t[1] == "5"):
+            elif(labels[t] == "5"):
                 positive_words = update_dict(positive_words, w)
-            elif(t[1] == "3"):
+            elif(labels[t] == "3"):
                 neutral_words = update_dict(neutral_words, w)
 
     positive_words = sort_dict(positive_words)
@@ -61,26 +61,25 @@ def plot_word_categories(positive_words, negative_words, neutral_words):
     plt.show()
 
 def plot_word_cloud(positive_words, negative_words, neutral_words):
-    posWordCloud = WordCloud(width = 800, height = 800, 
-                background_color ='white', 
-                stopwords = stopwords, 
-                min_font_size = 10).generate_from_frequencies(positive_words) 
+    posWordCloud = WordCloud(width = 800, height = 800,
+                background_color ='white',
+                stopwords = stopwords,
+                min_font_size = 10).generate_from_frequencies(positive_words)
     plt.figure(figsize=(5,5))
     plt.imshow(posWordCloud)
 
-    negWordCloud = WordCloud(width = 800, height = 800, 
-                    background_color ='white', 
-                    stopwords = stopwords, 
-                    min_font_size = 10).generate_from_frequencies(negative_words) 
+    negWordCloud = WordCloud(width = 800, height = 800,
+                    background_color ='white',
+                    stopwords = stopwords,
+                    min_font_size = 10).generate_from_frequencies(negative_words)
 
     plt.figure(figsize=(5,5))
     plt.imshow(negWordCloud)
 
-    neutralWordCloud = WordCloud(width = 800, height = 800, 
-                    background_color ='white', 
-                    stopwords = stopwords, 
-                    min_font_size = 10).generate_from_frequencies(neutral_words) 
+    neutralWordCloud = WordCloud(width = 800, height = 800,
+                    background_color ='white',
+                    stopwords = stopwords,
+                    min_font_size = 10).generate_from_frequencies(neutral_words)
 
     plt.figure(figsize=(5,5))
     plt.imshow(neutralWordCloud)
-
